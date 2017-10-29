@@ -1,13 +1,23 @@
 import React from 'react';
+import WeatherRow from './components/WeatherRow.js';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default class App extends React.Component {
   render() {
+    let days = {
+      m: 'Mon',
+      t: 'Tue',
+      w: 'Wed',
+      th: 'Thu',
+      f: 'Fri'
+    }
     return (
       <View style={styles.container}>
-        <Text style={styles.backgroundColor}>Open up App.js to stop working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <WeatherRow day={days.m}></WeatherRow>
+        <WeatherRow day={days.t}></WeatherRow>
+        <WeatherRow day={days.w}></WeatherRow>
+        <WeatherRow day={days.th}></WeatherRow>
+        <WeatherRow day={days.f}></WeatherRow>
       </View>
     );
   }
@@ -16,8 +26,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'white',
+    paddingTop: 25
   },
 });
