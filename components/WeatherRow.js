@@ -5,9 +5,11 @@ import { StyleSheet, Text, View } from 'react-native';
 const fahrenheitIcon = (<Icon name="hand-spock-o" size={30} color="#fff" />)
 
 class WeatherRow extends React.Component {
+
   constructor(props) {
     super(props)
   }
+
   render() {
     return (
       <View style={styles.daysContainer}>
