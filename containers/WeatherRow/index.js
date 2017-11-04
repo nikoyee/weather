@@ -1,10 +1,11 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { StyleSheet, Text, View } from 'react-native';
+import styles from './styles'
 
 const fahrenheitIcon = (<Icon name="hand-spock-o" size={30} color="#fff" />)
 
-class WeatherRow extends React.Component {
+export default class WeatherRow extends React.Component {
 
   constructor(props) {
     super(props)
@@ -27,25 +28,3 @@ class WeatherRow extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  days: {
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 50,
-    color: 'white',
-  },
-  temp: {
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 30,
-    color: 'white',
-  },
-  daysContainer: {
-    flex: 1, 
-    backgroundColor: '#27a4dd', 
-    flexDirection: 'row', 
-    alignItems: 'center', 
-    justifyContent: 'center'},
-});
-
-export default WeatherRow;
