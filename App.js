@@ -6,8 +6,9 @@ import WeatherRow from './containers/WeatherRow';
 
 // Global Variables
 const data = require('./assets/weather.json');
-let weatherObj = { 0: {}, 1: {}, 2: {}, 3: {}, 4: {} };
 const today = new Date().toDateString();
+
+let weatherObj = { 0: {}, 1: {}, 2: {}, 3: {}, 4: {} };
 
 // Date object does not have a native way to add days x_x
 // https://stackoverflow.com/questions/563406/add-days-to-javascript-date
