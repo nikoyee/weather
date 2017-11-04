@@ -1,3 +1,5 @@
+import {StyleSheet} from 'react-native'
+
 const styles = StyleSheet.create({
   days: {
     textAlign: 'center',
@@ -18,3 +20,5 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     justifyContent: 'center'},
 });
+
+export default styles;
