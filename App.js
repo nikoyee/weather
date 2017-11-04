@@ -4,7 +4,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import WeatherRow from './containers/WeatherRow';
 
 
-// Global Variables
+/**
+ * Global Variables
+ */ 
 
 const data = require('./assets/weather.json');
 const today = new Date().toDateString();
@@ -27,8 +29,6 @@ export default class App extends React.Component {
   _createWeatherObject(){
     for(let d of data.list){
 
-      // Get the entries date without the time
-      
       let day = new Date(d.dt_txt).toDateString();
 
       /**
