@@ -5,13 +5,17 @@ import WeatherRow from './containers/WeatherRow';
 
 
 // Global Variables
+
 const data = require('./assets/weather.json');
 const today = new Date().toDateString();
 
 let weatherObj = { 0: {}, 1: {}, 2: {}, 3: {}, 4: {} };
 
-// Date object does not have a native way to add days x_x
-// https://stackoverflow.com/questions/563406/add-days-to-javascript-date
+/**
+ * Date object does not have a native way to add days x_x
+ * https://stackoverflow.com/questions/563406/add-days-to-javascript-date
+ */
+
 Date.prototype.addDays = function(days) {
   var dat = new Date(this.valueOf());
   dat.setDate(dat.getDate() + days);
@@ -24,10 +28,14 @@ export default class App extends React.Component {
     for(let d of data.list){
 
       // Get the entries date without the time
+      
       let day = new Date(d.dt_txt).toDateString();
 
-      // There are 5 days worth of data entries
-      // and we need to modify the data for our app to use
+      /**
+       * There are 5 days worth of data entries and
+       * we need to modify the data for our app to use
+       */
+
       switch (day) {
         case (day == today):
           break;
