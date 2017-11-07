@@ -6,6 +6,8 @@ import WeatherRow from './containers/WeatherRow';
 
 /**
  * Global Variables
+ * 
+ * Everything outside the class definition is global.
  */
 
 const data = require('./assets/weather.json');
