@@ -11,7 +11,13 @@ import WeatherRow from './containers/WeatherRow';
 const data = require('./assets/weather.json');
 const today = new Date();
 
-let weatherObj = [[0],[1],[2],[3],[4]];
+/**
+ * TODO:
+ * 
+ * Create a unique ID for each array element. A warning was spit out by react and told me
+ * "You done goofed, get a unique id on your interable data structure so that you can git gud"
+ */
+let weatherArr = [[0],[1],[2],[3],[4]];
 
 /**
  * Date object does not have a native way to add days x_x
@@ -26,9 +32,10 @@ Date.prototype.addDays = function(days) {
 
 export default class App extends React.Component {
 
-  _populateWeatherObject(){
+  populateWeatherArr = () => {
     for(let d of data.list){
-      let dd = (d.dt_txt).replace(/\s/g, "T").concat("Z");
+      
+      let dd = (d.dt_txt).replace(/\s/, "T");
       let day = new Date(dd);
 
       /**
@@ -38,38 +45,39 @@ export default class App extends React.Component {
 
       switch (day.toDateString()) {
         case (today.toDateString()):
-          weatherObj[0].push(d);
+          weatherArr[0].push(d);
           break;
         case (today.addDays(1).toDateString()):
-          weatherObj[1].push(d);
+          weatherArr[1].push(d);
           break;
         case (today.addDays(2).toDateString()):
-          weatherObj[2].push(d);
+          weatherArr[2].push(d);
           break;
         case (today.addDays(3).toDateString()):
-          weatherObj[3].push(d);
+          weatherArr[3].push(d);
           break;
         case (today.addDays(4).toDateString()):
-          weatherObj[4].push(d);
+          weatherArr[4].push(d);
           break;
         default:
-          console.log(day);
+          console.log(day.toDateString());
           break;
       }
 
     }
-    console.log(weatherObj[0].length);
+    console.log(weatherArr[0].length);
   }
 
+  outputWeatherRow = weatherArr.map(
+    (arr) => {
+      return <WeatherRow key={arr}/>
+    }
+  )
+
   render() {
-    this._populateWeatherObject();
     return (
       <View style={styles.container}>
-        <WeatherRow data={weatherObj[0]}></WeatherRow>
-        <WeatherRow data={weatherObj[1]}></WeatherRow>
-        <WeatherRow data={weatherObj[2]}></WeatherRow>
-        <WeatherRow data={weatherObj[3]}></WeatherRow>
-        <WeatherRow data={weatherObj[4]}></WeatherRow>
+        {this.outputWeatherRow}
       </View>
     );
   }
