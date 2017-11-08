@@ -2,24 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import WeatherRow from './containers/WeatherRow';
-
-
-/**
- * Global Variables
- * 
- * Everything outside the class definition is global.
- */
-
-const data = require('./assets/weather.json');
-const today = new Date();
-
-/**
- * TODO:
- * 
- * Create a unique ID for each array element. A warning was spit out by react and told me
- * "You done goofed, get a unique id on your interable data structure so that you can git gud"
- */
-let weatherArr = [[0],[1],[2],[3],[4]];
+import WeatherData from './assets/weather.json';
 
 /**
  * Date object does not have a native way to add days x_x
@@ -34,52 +17,68 @@ Date.prototype.addDays = function(days) {
 
 export default class App extends React.Component {
 
-  populateWeatherArr = () => {
-    for(let d of data.list){
-      
-      let dd = (d.dt_txt).replace(/\s/, "T");
-      let day = new Date(dd);
-
-      /**
-       * There are 5 days worth of data entries and
-       * we need to modify the data for our app to use
-       */
-
-      switch (day.toDateString()) {
-        case (today.toDateString()):
-          weatherArr[0].push(d);
-          break;
-        case (today.addDays(1).toDateString()):
-          weatherArr[1].push(d);
-          break;
-        case (today.addDays(2).toDateString()):
-          weatherArr[2].push(d);
-          break;
-        case (today.addDays(3).toDateString()):
-          weatherArr[3].push(d);
-          break;
-        case (today.addDays(4).toDateString()):
-          weatherArr[4].push(d);
-          break;
-        default:
-          console.log(day.toDateString());
-          break;
-      }
-
-    }
-    console.log(weatherArr[0].length);
+  constructor(props){
+    super(props)
   }
 
-  outputWeatherRow = weatherArr.map(
-    (arr) => {
-      return <WeatherRow key={arr}/>
-    }
-  )
+  iterateWeatherData = () => {
+
+    /**
+     * Local variable to this function.
+     */
+
+    let today = new Date();
+    let weatherArr = [[0],[1],[2],[3],[4]];
+
+    /**
+     * Itirate over each element of WeatherData.list and use the date object create to
+     * organize the data by day.
+     */
+
+    (WeatherData.list).map(
+      (d) => {
+        let day = new Date(d.dt_txt);
+        switch (day.toDateString()) {
+          case (today.toDateString()):
+            weatherArr[0].push(d);
+            break;
+          case (today.addDays(1).toDateString()):
+            weatherArr[1].push(d);
+            break;
+          case (today.addDays(2).toDateString()):
+            weatherArr[2].push(d);
+            break;
+          case (today.addDays(3).toDateString()):
+            weatherArr[3].push(d);
+            break;
+          case (today.addDays(4).toDateString()):
+            weatherArr[4].push(d);
+            break;
+          default:
+            console.log(day.toDateString());
+            break;
+        }
+      }
+    )
+
+    /**
+     * Iterate over the organized data and output the WeatherRow component while
+     * passing the data as prop for the component.
+     */
+
+    return weatherArr.map(
+      function(data){
+        return <WeatherRow key={data[0]} />
+      }
+    )
+    
+  }
 
   render() {
+    
     return (
       <View style={styles.container}>
-        {this.outputWeatherRow}
+        {this.iterateWeatherData()}
       </View>
     );
   }
