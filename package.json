@@ -1,24 +1,22 @@
 {
-  "name": "weather",
-  "version": "0.1.0",
-  "private": true,
-  "devDependencies": {
-    "babel-preset-react-native-stage-0": "^1.0.1",
-    "jest-expo": "^21.0.2",
-    "react-test-renderer": "16.0.0-alpha.12"
-  },
-  "scripts": {
-    "start": "react-native start",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
-  },
-  "jest": {
-    "preset": "jest-expo"
-  },
-  "dependencies": {
-    "react": "16.0.0-alpha.12",
-    "react-native": "^0.48.4",
-    "react-native-vector-icons": "^4.4.2"
-  }
+	"name": "weather",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"dependencies": {
+		"react": "16.0.0",
+		"react-native": "0.50.2"
+	},
+	"devDependencies": {
+		"babel-jest": "21.2.0",
+		"babel-preset-react-native": "4.0.0",
+		"jest": "21.2.1",
+		"react-test-renderer": "16.0.0"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
 }
