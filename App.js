@@ -31,13 +31,20 @@ export default class App extends React.Component {
     let weatherArr = [[0],[1],[2],[3],[4]];
 
     /**
-     * Itirate over each element of WeatherData.list and use the date object create to
-     * organize the data by day.
+     * Itirate over each element of WeatherData.list 
+     * 
+     * For each object inside WeatherData.list
+     *    evaluate the day
+     *    divide the object per day in the array
+     *    push the object into an array
      */
 
     (WeatherData.list).map(
+
       (d) => {
+
         let day = new Date(d.dt_txt);
+
         switch (day.toDateString()) {
           case (today.toDateString()):
             weatherArr[0].push(d);
@@ -58,7 +65,9 @@ export default class App extends React.Component {
             console.log(day.toDateString());
             break;
         }
+
       }
+
     )
 
     /**
@@ -67,9 +76,11 @@ export default class App extends React.Component {
      */
 
     return weatherArr.map(
+
       (data) => {
         return <WeatherRow key={data[0]} />
       }
+
     )
     
   }
@@ -80,7 +91,8 @@ export default class App extends React.Component {
       <View style={styles.container}>
         {this.iterateWeatherData()}
       </View>
-    );
+    )
+    
   }
 }
 
