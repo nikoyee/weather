@@ -9,7 +9,7 @@ import WeatherData from './assets/weather.json';
  * https://stackoverflow.com/questions/563406/add-days-to-javascript-date
  */
 
-Date.prototype.addDays = function(days) {
+Date.prototype.addDays = (days) => {
   var dat = new Date(this.valueOf());
   dat.setDate(dat.getDate() + days);
   return dat;
