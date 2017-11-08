@@ -67,7 +67,7 @@ export default class App extends React.Component {
      */
 
     return weatherArr.map(
-      function(data){
+      (data) => {
         return <WeatherRow key={data[0]} />
       }
     )
