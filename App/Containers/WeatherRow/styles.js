@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native'
 
-const styles = StyleSheet.create({
+export default styles = StyleSheet.create({
   days: {
     textAlign: 'center',
     fontWeight: 'bold',
@@ -20,5 +20,3 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     justifyContent: 'center'},
 });
-
-export default styles;

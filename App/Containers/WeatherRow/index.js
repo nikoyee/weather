@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import styles from './styles.js'
+import Styles from './styles.js'
 
 export default class WeatherRow extends React.Component {
 
