@@ -2,7 +2,8 @@ import React from 'react'
 import {
   View,
   Text,
-  ScrollView
+  ScrollView,
+  StyleSheet
 } from 'react-native'
 
 import PaddingTop from './App/Containers/PaddingTop'
@@ -15,12 +16,35 @@ export default class App extends React.Component {
 
   outputCubes = (obj) => {
     return obj.map(function (d) {
-      return (
-        <View key={d.dt} style={{ width: '33.3%', height: 100, flexWrap: 'wrap' }}>
-          <Text>{d.main.temp}</Text>
-          <Text>{d.weather[0].description}</Text>
-        </View>
-      )
+      const key  = d.dt
+      const temp = Math.floor(d.main.temp)
+      const desc = d.weather[0].description
+      switch(desc){
+        case('clear sky'):
+          return (
+            <View key={key} style={Styles.cubeYellow}>
+              <Text>{temp}</Text>
+              <Text>{desc}</Text>
+            </View>
+          )
+          break;
+        case('few clouds'):
+          return (
+            <View key={key} style={Styles.cubeBlue}>
+              <Text>{temp}</Text>
+              <Text>{desc}</Text>
+            </View>
+          )
+          break;
+        default:
+          return (
+            <View key={key} style={Styles.cubeNone}>
+              <Text>{temp}</Text>
+              <Text>{desc}</Text>
+            </View>
+          )
+          break;
+      }
     })
   }
 
@@ -29,10 +53,34 @@ export default class App extends React.Component {
     return (
       <ScrollView>
         <PaddingTop/>
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+        <View style={Styles.mainContainer}>
           {this.outputCubes(data.list)}
         </View>
       </ScrollView>
     )
   }
 }
+
+const cubeContainer = { 
+  height: 100,
+  width: '33.3%', 
+  flexWrap: 'wrap'  
+}
+
+const Styles = StyleSheet.create({
+  mainContainer: { 
+    flexDirection: 'row', 
+    flexWrap: 'wrap'
+   },
+  cubeBlue: {
+    ...cubeContainer,
+    backgroundColor: '#9ebbc6'
+  },
+  cubeYellow: {
+    ...cubeContainer,
+    backgroundColor: '#fdfd96'
+  },
+  cubeNone: {
+    ...cubeContainer
+  }
+})
