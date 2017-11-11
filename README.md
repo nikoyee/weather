@@ -11,4 +11,4 @@ This project is not finished and still lacks a several features like fetching li
 
 ## ScreenShot
 
-![Image of Weather App](https://imgur.com/5n9Z2Kj)
+![Image of Weather App](https://i.imgur.com/5n9Z2Kj.png)
