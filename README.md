@@ -13,3 +13,7 @@ This project is not finished and still lacks a several features like fetching li
 ## ScreenShot
 
 ![Image of Weather App](https://i.imgur.com/5n9Z2Kj.png)
+
+The goal of the app is to have this look and feature
+
+![Image of Final Design for App](https://i.imgur.com/yXgtGHX.jpg)
