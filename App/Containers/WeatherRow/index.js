@@ -22,13 +22,13 @@ export default class WeatherRow extends Component {
   }
   render(){
     return(
-      <View>
-        <View>
-          {/* Contains the day string */}
-          <Text></Text>
+      <View style={{flexDirection: 'row', height: 100, paddingTop: 10, paddingBottom: 10}}>
+        <View style={{width: '6%', alignItems: 'center', justifyContent: 'center'}}>
+          <Text>{this.props.day[0]}</Text>
+          <Text>{this.props.day[1]}</Text>
+          <Text>{this.props.day[2]}</Text>
         </View>
-        <View style={{flexDirection: 'row'}}>
-          {/* Contains the weather box for the day */}
+        <View style={{width: '100%', flexDirection: 'row'}}>
           {this._getDayWeather(this.props.day)}
         </View>
       </View>
