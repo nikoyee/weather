@@ -12,8 +12,8 @@ This project is not finished and still lacks a several features like fetching li
 
 ## ScreenShot
 
+### Nov 10, 2017 - update
 ![Image of Weather App](https://i.imgur.com/5n9Z2Kj.png)
 
-The goal of the app is to have this look and feature
-
-![Image of Final Design for App](https://i.imgur.com/yXgtGHX.jpg)
+### Nov 18, 2017 - update
+![Imgur](https://i.imgur.com/OpIzPmL.png)
