@@ -37,7 +37,7 @@ export default class WeatherBox extends Component {
 
   render(){
     return (
-      <View Style={Styles.box}>
+      <View>
         <View style={Styles.centerItems}>
           <Text>{this.props.time}</Text>
           <Image style={Styles.icon} source={this._getWeatherIcon(this.props.tempDescription)} resizeMode='contain' />
