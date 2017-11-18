@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {
   View,
   Text,
@@ -8,8 +8,9 @@ import {
 } from 'react-native'
 
 import PaddingTop from './App/Containers/PaddingTop'
+import WeatherRow from './App/Containers/WeatherRow'
 
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props)
   }

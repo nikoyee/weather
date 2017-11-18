@@ -1,3 +1,10 @@
+/**
+ * Personal Note:
+ *
+ * This felt sooooo right. My code smelled bad when i had so much logic inside my App.js about manipulating the
+ * json data for the application. I created this class to give me the interface i needed to easily use the json data.
+ */
+
 class Weather {
   constructor(){
     this.data = require('../../Assets/weather.json')
@@ -33,7 +40,7 @@ class Weather {
         if(day == dayPicked){
           dataForWeatherRowComponent.push({
             key: weather.dt_txt,
-            temp: Math.floor(weather.temp),
+            temp: Math.floor(weather.main.temp),
             time: new Date(weather.dt_txt).getHours(),
             tempDescription: weather.weather[0].main
           })
