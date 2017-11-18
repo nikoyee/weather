@@ -20,7 +20,13 @@ export default class App extends Component {
       <ScrollView>
         <PaddingTop/>
         <View style={Styles.mainContainer}>
-
+          <WeatherRow day={'Mon'}/>
+          <WeatherRow day={'Tue'}/>
+          <WeatherRow day={'Wed'}/>
+          <WeatherRow day={'Thu'}/>
+          <WeatherRow day={'Fri'}/>
+          <WeatherRow day={'Sat'}/>
+          <WeatherRow day={'Sun'}/>
         </View>
       </ScrollView>
     )
