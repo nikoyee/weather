@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
 import {
   View,
-  Text
+  Text,
+  ScrollView
 } from 'react-native'
 
 import Weather from '../../Classes/Weather'
 import WeatherBox from '../WeatherBox'
-
+import Styles from './styles'
 export default class WeatherRow extends Component {
   _getDayWeather = (dayPicked) => {
     return Weather.getDayWeather(dayPicked).map(
@@ -22,14 +23,16 @@ export default class WeatherRow extends Component {
   }
   render(){
     return(
-      <View style={{flexDirection: 'row', height: 100, paddingTop: 10, paddingBottom: 10}}>
-        <View style={{width: '6%', alignItems: 'center', justifyContent: 'center'}}>
-          <Text>{this.props.day[0]}</Text>
-          <Text>{this.props.day[1]}</Text>
-          <Text>{this.props.day[2]}</Text>
+      <View style={Styles.rowContainer}>
+        <View style={Styles.dayContainer}>
+          <Text style={Styles.dayFont}>{this.props.day[0]}</Text>
+          <Text style={Styles.dayFont}>{this.props.day[1]}</Text>
+          <Text style={Styles.dayFont}>{this.props.day[2]}</Text>
         </View>
-        <View style={{width: '100%', flexDirection: 'row'}}>
-          {this._getDayWeather(this.props.day)}
+        <View style={Styles.scrollViewContainer}>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            {this._getDayWeather(this.props.day)}
+          </ScrollView>
         </View>
       </View>
     )
