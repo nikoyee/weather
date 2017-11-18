@@ -17,7 +17,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <PaddingTop/>
         <View style={Styles.mainContainer}>
           <WeatherRow day={'Mon'}/>
