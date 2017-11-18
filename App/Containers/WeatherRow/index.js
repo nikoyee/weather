@@ -3,7 +3,7 @@ import {
   View,
   Text
 } from 'react-native'
-
+import Swiper from 'react-native-swiper'
 import Weather from '../../Classes/Weather'
 import WeatherBox from '../WeatherBox'
 
@@ -22,15 +22,15 @@ export default class WeatherRow extends Component {
   }
   render(){
     return(
-      <View style={{flexDirection: 'row', height: 100, paddingTop: 10, paddingBottom: 10}}>
+      <View style={{paddingTop: 10, paddingBottom: 10}}>
         <View style={{width: '6%', alignItems: 'center', justifyContent: 'center'}}>
           <Text>{this.props.day[0]}</Text>
           <Text>{this.props.day[1]}</Text>
           <Text>{this.props.day[2]}</Text>
         </View>
-        <View style={{width: '100%', flexDirection: 'row'}}>
-          {this._getDayWeather(this.props.day)}
-        </View>
+        <Swiper style={{height: 100}} loop={false} showsPagination={false}>
+            {this._getDayWeather(this.props.day)}
+        </Swiper>
       </View>
     )
   }
