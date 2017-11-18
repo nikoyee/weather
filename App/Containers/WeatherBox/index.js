@@ -4,6 +4,9 @@ import {
 } from 'react-native'
 
 import Styles from './styles'
+import clearIcon from '../../Assets/Icons/clear-sky.png'
+import cloudIcon from '../../Assets/Icons/few-clouds.png'
+import rainIcon from '../../Assets/Icons/rain.png'
 
 export default class WeatherBox extends Component {
   constructor(props){
