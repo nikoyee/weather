@@ -22,6 +22,7 @@ export default class WeatherRow extends Component {
     )
   }
   render(){
+    if (Weather.getDayWeather(this.props.day).length == 0) {return null}
     return(
       <View style={Styles.rowContainer}>
         <View style={Styles.dayContainer}>
@@ -30,7 +31,7 @@ export default class WeatherRow extends Component {
           <Text style={Styles.dayFont}>{this.props.day[2]}</Text>
         </View>
         <View style={Styles.scrollViewContainer}>
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} bonces={false}>
             {this._getDayWeather(this.props.day)}
           </ScrollView>
         </View>

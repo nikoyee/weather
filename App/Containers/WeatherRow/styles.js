@@ -4,7 +4,7 @@ export default StyleSheet.create(
   {
     rowContainer: {
       flexDirection: 'row',
-      height: 100
+      height: 127
     },
     dayContainer: {
       width: '6%',

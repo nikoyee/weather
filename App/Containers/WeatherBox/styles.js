@@ -8,6 +8,7 @@ export default Styles = StyleSheet.create(
       width: 75,
       paddingLeft: 10,
       paddingRight: 10,
+      paddingTop: 20,
       marginLeft: 10,
       marginRight: 10
     },
@@ -19,16 +20,16 @@ export default Styles = StyleSheet.create(
       height: 40,
       width: 40,
       marginBottom: 7,
-      marginTop: 7
+      marginTop: 7,
     },
     blueBox: {
-      backgroundColor: '#9ebbc6'
+      backgroundColor: '#2196F3'
     },
     yellowBox: {
-      backgroundColor: '#fdfd96'
+      backgroundColor: '#FFEB3B'
     },
     purpleBox: {
-      backgroundColor: '#DAC2DD'
+      backgroundColor: '#8E44ad'
     }
   }
 )
