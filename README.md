@@ -1,13 +1,10 @@
 ## Weather
-Weather App is my first introduction app using the react-native framework.
-
-This project is not finished and still lacks a several features like fetching live weather data.
+Weather App is my first introduction app using the react-native framework. I am 75% finished! Great experience so far.
 
 ## To Do
-* Correctly output the date + time of each weather box
-* Create rows that represent a day of the week
-* A row will be a slider where a user can swipe left or right to see the weather per 3 hours of the day
-* Be able to fetch and update the weather data via pulling down on the screen by the user
+* Fetch calls to Weather API
+* AsyncStorage of the payload from the API
+* PullDown gesture to check if data is updated
 
 
 ## ScreenShot
