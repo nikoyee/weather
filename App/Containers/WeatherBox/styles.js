@@ -1,17 +1,16 @@
 import {StyleSheet} from 'react-native'
 
-const boxContainer = {
-  height: 100,
-  width: '33.3%',
-  flexWrap: 'wrap',
-  justifyContent: 'center'
-}
-
 export default Styles = StyleSheet.create(
   {
     centerItems: {
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      width: 75,
+      paddingLeft: 10,
+      paddingRight: 10,
+      paddingTop: 20,
+      marginLeft: 10,
+      marginRight: 10
     },
     tempIcon:{
       height: 12,
@@ -21,22 +20,16 @@ export default Styles = StyleSheet.create(
       height: 40,
       width: 40,
       marginBottom: 7,
-      marginTop: 7
+      marginTop: 7,
     },
     blueBox: {
-      ...boxContainer,
-      backgroundColor: '#9ebbc6'
+      backgroundColor: '#2196F3'
     },
     yellowBox: {
-      ...boxContainer,
-      backgroundColor: '#fdfd96'
+      backgroundColor: '#FFEB3B'
     },
     purpleBox: {
-      ...boxContainer,
-      backgroundColor: '#DAC2DD'
-    },
-    box: {
-      ...boxContainer
+      backgroundColor: '#8E44ad'
     }
   }
 )
