@@ -1,11 +1,13 @@
 ## Weather
 Weather App is my first introduction app using the react-native framework. I am 75% finished! Great experience so far.
 
+## Config File
+For a simple solution to storing api keys. I created a js file to store these kind of data. It is ignored in this repo so dont forget to create onea and add the necessary variables.
+
 ## To Do
 * Fetch calls to Weather API
 * AsyncStorage of the payload from the API
 * PullDown gesture to check if data is updated
-
 
 ## ScreenShot
 
