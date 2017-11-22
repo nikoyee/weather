@@ -23,13 +23,13 @@ export default Styles = StyleSheet.create(
       marginTop: 7,
     },
     blueBox: {
-      backgroundColor: '#2196F3'
+      backgroundColor: '#ffa5a6'
     },
     yellowBox: {
-      backgroundColor: '#FFEB3B'
+      backgroundColor: '#ffd1d2'
     },
     purpleBox: {
-      backgroundColor: '#8E44ad'
+      backgroundColor: '#c37a7b'
     }
   }
 )
