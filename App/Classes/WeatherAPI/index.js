@@ -1,51 +1,58 @@
 import {AsyncStorage} from 'react-native'
-import Config from '../../config'
+import CONFIG from '../../config'
 
-const getURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=37.69&lon=-122.15&mode=json&units=imperial&appid='+Config.APP_ID
-
-export default class WeatherAPI {
+class WeatherAPI {
   getWeatherData = () => {
-    fetch(getURL)
+    fetch(CONFIG.GET_URL)
     .then(results => {
-      this.setWeatherData(results.json())
-      this.setUpdatedAt()
       return results.json()
+    })
+    .then(data => {
+      if (data.cod == '200') {
+        this.setStoredWeatherData(data)
+        this.setUpdatedAt()
+      }
+      else {return false}
+    })
+    .catch(error => {console.error(error)})
+  }
+
+  isStoredWeatherDataOld = () => {
+    return this.getUpdatedAt().then(updatedAtDate => {
+      const now = new Date()
+      const updateddAt = new Date(updatedAtDate)
+      if ((now - updateddAt) > CONFIG.MILISECOND_OF_3_HOURS) {
+        return true
+      } else {
+        return false
+      }
     }).catch(error => {
       console.error(error)
     })
   }
 
   setUpdatedAt = () => {
-    try {
-      await AsyncStorage.setItem('updated_at', new Date())
-      return true
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  getUpdatedAt = () => {
-    try {return await AsyncStorage.getItem('updated_at')}
+    try {AsyncStorage.setItem('updated_at', new Date())}
     catch (error) {console.error(error)}
   }
-
-  setWeatherData = (w) => {
-    if (w) {
-      try {
-        await AsyncStorage.setItem('weather', JSON.stringify(w))
-        return true
-      } catch (error) {console.error(error)}
-    } else {return null}
+  setStoredWeatherData = (data) => {
+    if (data) {
+      try {AsyncStorage.setItem('weather', JSON.stringify(data))}
+      catch (error) {console.error(error)}
+    } else {return false}
   }
 
   getStoredWeatherData = () => {
-    try {return await AsyncStorage.getItem('weather')}
+    try {
+      return AsyncStorage.getItem('weather')
+    }
     catch (error) {console.error(error)}
   }
 
-  isOldWeatherData = () => {
-    const now = new Date()
-    get
+  getUpdatedAt = () => {
+    try {return AsyncStorage.getItem('updated_at')}
+    catch (error) {console.error(error)}
   }
-
 }
+
+export default new WeatherAPI
