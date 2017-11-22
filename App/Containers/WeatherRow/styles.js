@@ -9,11 +9,11 @@ export default StyleSheet.create(
       height: 128
     },
     dayContainer: {
-      width: '6%',
+      width: '8%',
       alignItems: 'center',
       justifyContent: 'center',
       borderRightColor: 'black',
-      borderRightWidth: 8
+      borderRightWidth: 6
     },
     scrollViewContainer: {
       width: '100%',

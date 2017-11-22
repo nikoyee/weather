@@ -1,5 +1,7 @@
 import {StyleSheet} from 'react-native'
 
+const container = {marginRight: 8}
+
 export default Styles = StyleSheet.create(
   {
     centerItems: {
@@ -23,12 +25,15 @@ export default Styles = StyleSheet.create(
       marginTop: 7,
     },
     blueBox: {
+      ...container,
       backgroundColor: '#ffa5a6'
     },
     yellowBox: {
+      ...container,
       backgroundColor: '#ffd1d2'
     },
     purpleBox: {
+      ...container,
       backgroundColor: '#c37a7b'
     }
   }
