@@ -12,7 +12,7 @@ For a simple solution to storing api keys. I created a js file to store these ki
 ## ScreenShot
 
 ### Nov 21, 2017 - update
-[Final Style](https://i.imgur.com/lV2Ra8W.png)
+![Final Style](https://i.imgur.com/lV2Ra8W.png)
 
 ### Nov 18, 2017 - update
 ![Another One](https://i.imgur.com/CBlwa34.png)
