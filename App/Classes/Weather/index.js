@@ -22,26 +22,19 @@ class Weather {
   }
 
   /**
-   *  dayPicked is a string that must match the strings in dayArr
-   *  [1, 'Mon']
-   *  [2, 'Tue']
-   *  [3, 'Wed']
-   *  [4, 'Thu']
-   *  [5, 'Fri']
-   *  [6, 'Sat']
-   *  [7, 'Sun']
+   *  daySelected is a string that must match the strings in dayArr
    */
-  getDayWeather = (dayPicked) => {
+  getDayWeather = (daySelected) => {
     let dataForWeatherRowComponent = []
+    let dayArr = this.dayArr
     this.weatherList.map(
       (weather) => {
-        let numberForDayArr = new Date(weather.dt_txt).getDay()
-        let day = this.dayArr[numberForDayArr][1]
-        if(day == dayPicked){
+        let date = new Date(Date.parse(weather.dt_txt))
+        if(dayArr[date.getDay()][1] == daySelected){
           dataForWeatherRowComponent.push({
-            key: weather.dt_txt,
+            key: '_' + Math.random().toString(36).substr(2, 9),
             temp: Math.floor(weather.main.temp),
-            time: new Date(weather.dt_txt).getHours(),
+            time: date.getHours(),
             tempDescription: weather.weather[0].main
           })
         }
