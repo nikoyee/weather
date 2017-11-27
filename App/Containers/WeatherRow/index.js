@@ -9,18 +9,35 @@ import Weather from '../../Classes/Weather'
 import WeatherBox from '../WeatherBox'
 import Styles from './styles'
 export default class WeatherRow extends Component {
-  _getDayWeather = (dayPicked) => {
-    return Weather.getDayWeather(dayPicked).map(
-      (weather) => {
-        return <WeatherBox
-          key = {weather.key}
-          temp = {weather.temp}
-          time = {weather.time}
-          tempDescription = {weather.tempDescription}
-        />
-      }
-    )
+  constructor(props){
+    super(props)
+    this.state = {
+      isDataSet: false,
+      data: null
+    }
   }
+  _getDayWeather = (dayPicked) => {
+    // console.log(Weather.getDayWeather(dayPicked))
+    Weather.getDayWeather(dayPicked).then(results => {
+      this.setState({
+        isDataSet: true,
+        data: results
+      })
+    })
+    if(this.state.isDataSet){
+      return this.state.data.map(
+        (weather) => {
+          return <WeatherBox
+            key = {weather.key}
+            temp = {weather.temp}
+            time = {weather.time}
+            tempDescription = {weather.tempDescription}
+          />
+        }
+      )
+    }
+  }
+
   render(){
     if (Weather.getDayWeather(this.props.day).length == 0) {return null}
     return(
