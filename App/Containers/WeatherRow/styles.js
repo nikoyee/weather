@@ -4,12 +4,16 @@ export default StyleSheet.create(
   {
     rowContainer: {
       flexDirection: 'row',
-      height: 127
+      borderBottomColor: 'white',
+      borderBottomWidth: 8,
+      height: 128
     },
     dayContainer: {
-      width: '6%',
+      width: '8%',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      borderRightColor: 'black',
+      borderRightWidth: 6
     },
     scrollViewContainer: {
       width: '100%',
