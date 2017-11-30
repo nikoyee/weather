@@ -1,7 +1,10 @@
 import React from 'react'
 import {
-  View
+  ScrollView,
+  RefreshControl,
+  Button
 } from 'react-native'
+import Weather from '../../Classes/Weather'
 import WeatherRow from '../WeatherRow'
 export default class WeatherContainer extends React.Component {
   constructor(props){
@@ -15,11 +18,16 @@ export default class WeatherContainer extends React.Component {
     })
   }
 
+  _onRefresh = () => {
+    Weather.refreshData()
+  }
+
   render(){
     return(
-      <View>
+      <ScrollView>
         {this.getAllWeather()}
-      </View>
+        <Button onPress={this._onRefresh} title='Refresh' color='#000'/>
+      </ScrollView>
     )
   }
 }
