@@ -5,9 +5,11 @@ Weather App is my first introduction app using the react-native framework. I am 
 For a simple solution to storing api keys. I created a js file to store these kind of data. It is ignored in this repo so dont forget to create onea and add the necessary variables.
 
 ## To Do
-* Fetch calls to Weather API
-* AsyncStorage of the payload from the API
-* PullDown gesture to check if data is updated
+* Fix the order of the days displayed
+* Find a solution to refresh data on pulldown gesture. Currently, we have a button to invoke a refresh in data.
+
+## How to run it locally
+* TBD
 
 ## ScreenShot
 
