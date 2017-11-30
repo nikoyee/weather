@@ -11,6 +11,7 @@ class WeatherAPI {
       if (data.cod == '200') {
         this.setStoredWeatherData(data)
         this.setUpdatedAt()
+        alert('we hit GOLD!')
       }
       else {return false}
     })
@@ -27,7 +28,7 @@ class WeatherAPI {
         return false
       }
     }).catch(error => {
-      console.error(error)
+      return true
     })
   }
 

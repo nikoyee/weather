@@ -6,32 +6,18 @@
  */
 import WeatherAPI from '../WeatherAPI'
 class Weather {
-  constructor(){
-    // WeatherAPI.getWeatherData()
-    this.dayArr = [
-      [null],
-      [1, 'Mon'],
-      [2, 'Tue'],
-      [3, 'Wed'],
-      [4, 'Thu'],
-      [5, 'Fri'],
-      [6, 'Sat'],
-      [7, 'Sun']
-    ]
-  }
-
   /**
-   *  daySelected is a string that must match the strings in dayArr
+   *  day is a string that represents an element in days array
    */
-  getDayWeather = (daySelected) => {
+  getDayWeather = (day) => {
+    const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
     let dataForWeatherRowComponent = []
-    let dayArr = this.dayArr
-    let weatherData = WeatherAPI.getStoredWeatherData()
-    return weatherData.then(data =>{
+    return WeatherAPI.getStoredWeatherData()
+    .then(data => {
       JSON.parse(data).list.map(
         (weather) => {
           let date = new Date(Date.parse(weather.dt_txt))
-          if(dayArr[date.getDay()][1] == daySelected){
+          if(days[date.getDay()] == day){
             dataForWeatherRowComponent.push({
               key: '_' + Math.random().toString(36).substr(2, 9),
               temp: Math.floor(weather.main.temp),
@@ -43,6 +29,13 @@ class Weather {
       )
       return dataForWeatherRowComponent
     })
+    .catch(error => {
+      alert(error)
+    })
+  }
+
+  refreshData = () => {
+    WeatherAPI.getWeatherData()
   }
 }
 
